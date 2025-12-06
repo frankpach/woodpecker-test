@@ -1,0 +1,11 @@
+pipeline:
+  test-docker:
+    image: docker:27-cli
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - echo "✅ Woodpecker is running on NAS"
+      - docker version
+      - docker info | head -n 20
