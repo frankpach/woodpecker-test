@@ -1,15 +1,9 @@
-kind: pipeline
-type: docker
-
-name: default
+when:
+  event: [push]
 
 steps:
-  build:
-    image: python:3.10
+  hello:
+    image: python:3.12
     commands:
-      - echo "Pipeline ejecutado automáticamente!"
-      - python3 test.py
-
-when:
-  event:
-    - push
+      - echo "✅ Woodpecker pipeline triggered automatically by push"
+      - python3 --version
