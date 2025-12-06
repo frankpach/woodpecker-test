@@ -1,13 +1,15 @@
+kind: pipeline
+type: docker
+
+name: default
+
 steps:
-  - name: test-docker
-    when:
-      event: [push, manual]
-    image: docker:27-cli
-    environment:
-      DOCKER_HOST: unix:///var/run/docker.sock
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+  build:
+    image: python:3.10
     commands:
-      - echo "✅ Woodpecker is running on NAS"
-      - docker version
-      - docker info | head -n 20
+      - echo "Pipeline ejecutado automáticamente!"
+      - python3 test.py
+
+when:
+  event:
+    - push
