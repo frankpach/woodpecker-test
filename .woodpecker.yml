@@ -5,5 +5,4 @@ steps:
       - echo "EVENT=$CI_EVENT"
       - echo "BRANCH=$CI_COMMIT_BRANCH"
       - ls -la
-      - ls -la
 
