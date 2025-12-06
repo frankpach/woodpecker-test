@@ -1,5 +1,7 @@
 steps:
   - name: test-docker
+    when:
+      event: [push, manual]
     image: docker:27-cli
     environment:
       DOCKER_HOST: unix:///var/run/docker.sock
