@@ -1,14 +1,7 @@
-kind: pipeline
-type: docker
-name: default
-
-when:
-  event:
-    - push
-
 steps:
-  hello:
-    image: python:3.12
+  debug:
+    image: alpine
     commands:
-      - echo "✅ Woodpecker pipeline triggered automatically by PUSH"
-      - python3 --version
+      - echo "EVENT=$CI_EVENT"
+      - echo "BRANCH=$CI_COMMIT_BRANCH"
+      - ls -la
